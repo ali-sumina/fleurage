@@ -1,0 +1,101 @@
+@import '../../styles.scss';
+
+// FOOTER => component
+footer{
+    margin-top: 64px;
+    padding: 48px 0;
+    background-color: rgb(255, 248, 250);
+    font-family: $contentFont;
+    // height: 400px;
+    .footerLogo{
+        @include flex (center, center);
+    }
+
+    .logo{
+        width: 200px;
+    }
+
+    .footerItems{
+        // margin-top: 32px;
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .contSection{
+        @include flex(flex-start, flex-start);
+        gap: 12px;
+        margin-bottom: 16px;
+        .contIcon{
+            width: 32px;
+        }
+    }
+
+    a{
+        font-family: $contentFont;
+    }
+}
+
+.btn{
+    width: 100%;
+    background-color: rgb(237, 116, 137);
+    border: 0px solid grey;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 12px 0;
+    border-radius: 50px;
+}
+
+    
+.formalItems, .copytext{
+    font-size: 14px;
+    @include flex (center, center);
+    flex-wrap: nowrap !important;
+    gap: 24px;
+    }
+
+    .form-control{
+        color: rgb(202, 202, 202) !important;
+    }
+
+    .form-check{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-left: 0;
+        .form-check-input{
+            width: 18px;
+            height: 18px;
+            margin-left: 0;
+        }
+    
+        .form-check-input:checked{
+            background-color: $pink;
+            border-color: $pink;
+        }
+    }
+
+    @media  screen and (max-width:562px) {
+        .hide{
+            display: none;
+        }
+        footer{
+            text-align: center;
+
+            .footerItems, .contSection, .formalItems, .copytext{
+                @include flex (center, center);
+                flex-direction: column;
+            }
+
+            h5{
+                margin-top: 32px;
+            }
+
+            .footerLogo{
+                padding: 0;
+                .py-5{
+                    padding: 0;
+                }
+            }
+        }
+    }

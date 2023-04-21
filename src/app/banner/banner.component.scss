@@ -1,0 +1,35 @@
+@import '../../styles.scss';
+
+.banner {
+
+    margin-top: 72px;
+
+    border-bottom: 1px solid rgb(223, 223, 223);
+    @include flex(center, center);
+    flex-direction: column;
+
+    // .bouqIcon{
+    //     width: 64px;
+    // }
+
+    .breadcrumb{
+        font-family: $contentFont;
+        font-size: 14px;
+    }
+
+    .text{
+        @include flex(center, center);
+        text-align: center;
+    }
+
+    p{
+        font-family: $contentFont;
+        line-height: 1.6;
+    }
+       
+
+}
+
+.active{
+    color: $pink;
+}
