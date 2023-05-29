@@ -1,5 +1,31 @@
 <p>admin works!</p>
 
+
 <input type="text " placeholder="Bouquet Name">
 <input type="text" placeholder="Price">
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Image</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let bouquet of bouquets'>
+        <th scope="row" > {{ bouquet.id }}</th>
+        <td><input type="text"  placeholder="{{bouquet.title}}"></td>
+        <td><input type="text"  placeholder="{{bouquet.description}}"></td>
+        <td><input type="text"  placeholder="{{bouquet.price}}"></td>
+        <td><input type="text" [(ngModel)] = "stock" placeholder="{{bouquet.stock}}"></td>
+        <td><input type="text" [(ngModel)] = "image" placeholder="{{bouquet.image}}"></td>
+        <td><a routerLink="/editinfo" (click)="editData()"><button class="btn btn-primary">Edit Data</button></a></td>
+      </tr>
+      <tr>
+
 
