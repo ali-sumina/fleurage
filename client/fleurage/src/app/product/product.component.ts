@@ -1,36 +1,24 @@
-import { Component } from '@angular/core';
-import { Product } from '../interfaces/product.interface';
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../interface';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
 
-  products:Product[] = [
-    {
-      image: "../../assets/ready/product1.png",
-      title: "Lavender Bliss Bouquet",
-      description: "Elegant Bouquets Featuring Fragrant Lavender Blooms",
-      price: "60.00 CAD",
-      inStock: true
+  bouquets:any[] = [];
 
-    },
-    {
-      image: "./../assets/ready/product2.png",
-      title: "Garden Symphony Bouquet",
-      description: "Exotic Hibiscus Bouquets for a Vibrant Floral Display",
-      price: "70.00 CAD",
-      inStock: false
-    },
-    {
-      image: "./../assets/ready/product3.png",
-      title: "Harmonious Hues Bouquet",
-      description: "Lavender and Hibiscus Bouquets for a Fragrant Gift",
-      price: "80.00 CAD",
-      inStock: true
-    }
-  ]
+  constructor (private http:HttpClient){}
+
+  ngOnInit(): void {
+    this.http.get<Product>('http://localhost:4600/bouquets').subscribe(response => {
+      console.log("Response is ", response)
+      this.bouquets = response.bouquets
+      console.log (this.bouquets)
+    })
+  }
 
 }

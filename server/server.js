@@ -1,5 +1,7 @@
 import express from "express";
 import mysql from "mysql";
+import cors from "cors";
+
 
 //CONNECTION, SETUP
 
@@ -10,6 +12,7 @@ const port = 4600;
 server.listen (port, function(){
     console.log("Server started on port", port);
 })
+server.use(cors());
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -55,13 +58,13 @@ server.post('/addbouquet', function (req,res){
 })
 
 server.put('/updatebouqprice', function(req,res){
-    let SQLquery = 'CALL `updatePrice`(?, ?)';
+    let SQLquery = ' CALL `updateProduct`(?, ?, ?, ?, ?, ?)';
 
-    db.query(SQLquery, [req.body.id, req.body.price], function (error,data){
+    db.query(SQLquery, [req.body.id, req.body.title, req.body.description, req.body.price, req.body.stock, req.body.image], function (error,data){
         if (error) {
             res.json({error_message:error})
         } else {
-            res.json({message:data})
+            res.json({data})
         }
     })
 })
@@ -77,6 +80,12 @@ server.delete('/deletebouquet', function (req,res){
         }
     })
 })
+
+
+
+
+
+//ETIQUETTE
 
 server.post ('/bouquets', function (req,res){
     let title = req.body.title
@@ -97,11 +106,24 @@ server.post ('/bouquets', function (req,res){
     })
 
 
+//GET ALL
+server.get('/bouquets', (req,res) => {
+    let SQLquery = 'CALL `getAllProducts`()';
+
+    db.query(SQLquery, function(error, data){
+        if (error) {
+            res.json({error_message: error})
+        } else {
+            res.json({bouquets:data[0]})
+        }})
+})
+
+
 //GET BY PROD ID
 server.get('/bouquets/:id/', (req,res) => {
     let SQLquery = 'CALL `getProductByID`(?)';
     db.query(SQLquery, [req.params.id], (error,data) => {
-        (error) ? res.json( { error_message: error } ) : res.json( { message: data[0] } )
+        (error) ? res.json( { error_message: error } ) : res.json( { message: data[0][0] } )
         //in data if [0] -- won't take meta data
     })
     // let reqID = req.params.id;
@@ -120,9 +142,14 @@ server.get('/bouquets/:id/', (req,res) => {
 //PUT  by prod id
 
 server.put('/bouquets/:id', (req, res) => {
-    let SQLquery = 'CALL `updatePrice`(?, ?)';
-    db.query(SQLquery, [req.params.id, req.body.price], (error, data) => {
-        (error) ? res.json( { error_message: error}) : res.json ( { message: "updated", data: data })
+    let SQLquery = ' CALL `updateProduct`(?, ?, ?, ?, ?, ?)';
+
+    db.query(SQLquery, [req.params.id, req.body.title, req.body.description, req.body.price, req.body.stock, req.body.image], function (error,data){
+        if (error) {
+            res.json({error_message:error})
+        } else {
+            res.json({data})
+        }
     })
 })
 
@@ -132,5 +159,29 @@ server.delete('/bouquets/:id', (req, res) => {
     let SQLquery = 'CALL `deleteProduct`(?)';
     db.query(SQLquery, [req.params.id], (error, data) => {
         (error) ? res.json({ error_message: error }) : res.json({ message: "deleted", data: data })
+    })
+})
+
+
+//USER LOGIN VALIDATION 
+
+//sending request to check the match
+server.post('/validateuser', (req, res) => {
+    let SQLquery = ' CALL `validateUser`(?, ?)';
+    //(input email || password != DB email || password) ? no data : [{}] with data
+    db.query(SQLquery, [req.body.email, req.body.password], (error, data) => {
+        // (error) ? res.json({error_message: error}) : res.json (data[0].length > 0) ?  res.json(true) : res.json(false)
+        if (error){
+            res.json({error_message: error})
+        } else {
+            if (data[0].length>0) {
+                res.json (true)
+            } else {
+                res.json(false)
+            }
+        }
+    
+            //shows whether they match or not
+            ;
     })
 })

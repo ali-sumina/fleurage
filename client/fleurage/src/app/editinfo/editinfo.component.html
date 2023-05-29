@@ -1,0 +1,25 @@
+<div>
+    <label for="title">Title</label> <br>
+    <input type="text" id="title" placeholder="{{bouquets.message.title}}" [(ngModel)]='title'>
+    <div>{{title}}</div>
+    <br><br>
+
+    <label for="title">Description</label> <br>
+    <input type="text" id="description" placeholder="{{bouquets.message.description}}" [(ngModel)]="description">
+    <br><br>
+
+    <label for="title">Price</label> <br>
+    <input type="text" id="price" placeholder="{{bouquets.message.price}}" [(ngModel)]="price">
+    <br><br>
+
+    <label for="title">Stock</label> <br>
+    <input type="text" id="stock" placeholder="{{bouquets.message.stock}}" [(ngModel)]="stock">
+    <br><br>
+
+    <label for="title">Image</label> <br>
+    <input type="text" id="image" placeholder="{{bouquets.message.image}}" [(ngModel)]="image">
+    <br><br>
+
+    <td><button (click)="save()" class="btn btn-warning">Save</button></td>
+
+</div>

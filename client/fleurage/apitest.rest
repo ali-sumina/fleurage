@@ -22,8 +22,12 @@ PUT http://localhost:4600/updatebouqprice
 Content-Type: application/json
 
 {
-    "id": 3,
-    "price": 90
+    "title": "fkwebfekjwf",
+    "description": "fksfbek",
+    "price": 100,
+    "stock": 1,
+    "image": "fkjrbfhjrekf"
+    
 }
 
 ###
@@ -44,7 +48,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:4600/bouquet
+GET http://localhost:4600/bouquets
 
 
 ###
@@ -65,11 +69,15 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:4600/bouquets/4
+PUT http://localhost:4600/bouquets/10
 Content-Type: application/json
 
 {
-    "price": 100
+    "title": "fkwebfekjwf",
+    "description": "fksfbek",
+    "price": 100,
+    "stock": 1,
+    "image": "fkjrbfhjrekf"
     
 }
 
@@ -90,7 +98,9 @@ Content-Type: application/json
     "id": 4
 }
 
+###
 
+GET http://localhost:4600/bouquets/
 
 
 
@@ -118,4 +128,14 @@ GET http://localhost:4600/bouquets/1
 # }
 
 # Tests req.params.id in node console
+
+
+###
+POST http://localhost:4600/validateuser
+Content-Type: application/json
+
+{
+    "email": "a@aa.com",
+    "password": 54321
+}
 

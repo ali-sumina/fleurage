@@ -38,6 +38,7 @@
       <img src="../assets/icons/search.png" alt="" class="navIcon">
       <img src="../assets/icons/like.png" alt="" class="navIcon">
       <img src="../assets/icons/cart.png" alt="" class="navIcon">
+      <a routerLink="/login"><img src="../assets/icons/account.png" alt="" class="navIcon"></a>
     </div>
   </div>
 </nav>
@@ -71,7 +72,8 @@
       </div>
       <div class="row mt-5">
           <div class="col-12">
-            <app-product class="d-md-flex"></app-product>
+
+            <router-outlet></router-outlet>
           </div>
         </div>
       
