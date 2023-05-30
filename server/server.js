@@ -48,11 +48,15 @@ server.get('/seebouquets', function (req, res){
 server.post('/addbouquet', function (req,res){
     let SQLquery = 'CALL `createProduct`(?, ?, ?, ?, ?)';
 
-    db.query(SQLquery, [req.body.image, req.body.title, req.body.description, req.body.price, req.body.stock], function(error, data){
+    db.query(SQLquery, [req.body.title, req.body.description, req.body.price, req.body.stock, req.body.image], function(error, data){
         if (error) {
             res.json({error_message:error})
         } else {
-            res.json({message:data})
+            res.json({message: 'product added', data: data})
+        }
+
+        if({message: 'product added', data: data}){
+            res.json(true)
         }
     })
 })
@@ -152,6 +156,21 @@ server.put('/bouquets/:id', (req, res) => {
         }
     })
 })
+
+//PUT -- Update Stock by id
+
+server.put('/updatestock/:id', (req, res) => {
+    let SQLquery = 'CALL `updateStock`(?, ?)';
+
+    db.query(SQLquery, [req.params.id, req.body.stock], function (error,data){
+        if (error) {
+            res.json({error_message:error})
+        } else {
+            res.json({data}, true)
+        }
+    })
+})
+
 
 // DELETE by prod id
 

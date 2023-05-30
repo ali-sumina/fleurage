@@ -83,6 +83,15 @@ Content-Type: application/json
 
 ###
 
+PUT http://localhost:4600/updatestock/10
+Content-Type: application/json
+
+{
+    "stock": 0
+}
+
+###
+
 DELETE http://localhost:4600/bouquets/6
 
 
@@ -91,12 +100,7 @@ DELETE http://localhost:4600/bouquets/6
 
 ###
 
-DELETE http://localhost:4600/bouquets/
-Content-Type: application/json
-
-{
-    "id": 4
-}
+DELETE http://localhost:4600/bouquets/10
 
 ###
 

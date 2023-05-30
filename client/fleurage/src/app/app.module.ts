@@ -13,6 +13,7 @@ import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { EditinfoComponent } from './editinfo/editinfo.component';
+import { CreateproductComponent } from './createproduct/createproduct.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EditinfoComponent } from './editinfo/editinfo.component';
     FooterComponent,
     AdminComponent,
     LoginComponent,
-    EditinfoComponent
+    EditinfoComponent,
+    CreateproductComponent
   ],
   imports: [
     BrowserModule,

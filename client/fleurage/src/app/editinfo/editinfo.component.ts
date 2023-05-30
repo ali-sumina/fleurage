@@ -38,8 +38,14 @@ export class EditinfoComponent implements OnInit {
     })
   }
 
-  delete() {
-
+  updateStock() {
+    console.log("Before stock was", this.stock)
+    this.http.put('http://localhost:4600/updatestock/10', {id: this.id, stock: this.stock}).subscribe(response => {
+      console.log("Response is ", response)
+      this.bouquets = response
+      console.log (this.bouquets)
+    })
   }
+
 
 }

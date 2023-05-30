@@ -39,6 +39,14 @@ export class AdminComponent implements OnInit{
     })
   }
 
+  delete() {
+    //change ID to what 's supposed to be deleted
+    this.http.delete('http://localhost:4600/bouquets/11').subscribe(res => {
+      console.log ('Res is ', res)
+      this.bouquets = res
+    })
+  }
+
 
 
 }

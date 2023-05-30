@@ -1,8 +1,10 @@
-<p>admin works!</p>
+<!-- <p>admin works!</p> -->
 
-
+<!-- 
 <input type="text " placeholder="Bouquet Name">
-<input type="text" placeholder="Price">
+<input type="text" placeholder="Price"> -->
+
+<a routerLink="/createproduct"><button class="btn btn-success">Create New Product</button></a>
 
 <table class="table">
     <thead>
@@ -19,12 +21,15 @@
     <tbody>
       <tr *ngFor='let bouquet of bouquets'>
         <th scope="row" > {{ bouquet.id }}</th>
-        <td><input type="text"  placeholder="{{bouquet.title}}"></td>
-        <td><input type="text"  placeholder="{{bouquet.description}}"></td>
-        <td><input type="text"  placeholder="{{bouquet.price}}"></td>
+        <td><p>{{bouquet.title}}</p></td>
+        <td><p>{{bouquet.description}}</p></td>
+        <td><p>{{bouquet.price}}</p></td>
         <td><input type="text" [(ngModel)] = "stock" placeholder="{{bouquet.stock}}"></td>
-        <td><input type="text" [(ngModel)] = "image" placeholder="{{bouquet.image}}"></td>
-        <td><a routerLink="/editinfo" (click)="editData()"><button class="btn btn-primary">Edit Data</button></a></td>
+        <td><p>{{bouquet.image}}"</p></td>
+        <td>
+            <a routerLink="/editinfo" (click)="editData()"><button class="btn btn-primary">Edit Data</button></a>
+            <a routerLink="/admin"><button class="btn btn-danger" (click)="delete()">Delete</button></a>
+</td>
       </tr>
       <tr>
 

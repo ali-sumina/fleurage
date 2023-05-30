@@ -13,7 +13,10 @@
     <br><br>
 
     <label for="title">Stock</label> <br>
+    <div class="updateStock">
     <input type="text" id="stock" placeholder="{{bouquets.message.stock}}" [(ngModel)]="stock">
+    <button class="btn-secondary" (click)="updateStock()">Update Stock</button>
+    </div>
     <br><br>
 
     <label for="title">Image</label> <br>

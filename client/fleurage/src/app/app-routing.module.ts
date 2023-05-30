@@ -5,12 +5,14 @@ import { Product } from './interface';
 import { ProductComponent } from './product/product.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditinfoComponent } from './editinfo/editinfo.component';
+import { CreateproductComponent } from './createproduct/createproduct.component';
 
 const routes: Routes = [
   {path: 'product', component: ProductComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent},
-  {path:'editinfo', component: EditinfoComponent}
+  {path:'editinfo', component: EditinfoComponent},
+  {path: 'createproduct', component: CreateproductComponent}
 ];
 
 @NgModule({
