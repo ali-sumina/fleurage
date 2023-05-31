@@ -1,5 +1,130 @@
 @import '../../styles.scss';
 
+//BANNER
+
+.banner {
+
+    margin-top: 72px;
+
+    border-bottom: 1px solid rgb(223, 223, 223);
+    @include flex(center, center);
+    flex-direction: column;
+
+    // .bouqIcon{
+    //     width: 64px;
+    // }
+
+    .breadcrumb{
+        font-family: $contentFont;
+        font-size: 14px;
+    }
+
+    .text{
+        @include flex(center, center);
+        text-align: center;
+    }
+
+    p{
+        font-family: $contentFont;
+        line-height: 1.6;
+    }
+       
+}
+
+//FILTERS 
+
+.filters{
+    font-family: $contentFont;
+    .filterFlex{
+        border-bottom: 1px solid rgb(223, 223, 223);
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        .filterIcon{
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+}
+
+.filterTitle{
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+.flexFilter{
+    @include flex(space-between, center);
+    .filterIcon{
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.type{
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+.form-check{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    .form-check-input{
+        width: 18px;
+        height: 18px;
+        margin-left: 0;
+    }
+
+    .form-check-input:checked{
+        background-color: $pink;
+        border-color: $pink;
+    }
+}
+
+.color{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.colorCircle{
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+
+}
+
+.pink{
+    background-color: pink;
+}
+
+.blue{
+    background-color: rgb(149, 186, 229);
+}
+
+.purple{
+    background-color: rgb(209, 186, 249);
+}
+
+@media only screen and (max-width: 562px){
+    .hide{
+        display: none;
+    }
+
+    .filterFlex, .type{
+        border: 0px solid grey;
+    }
+    
+}
+
+
+//PRODUCT
+
+.active{
+    color: $pink;
+}
+
 .product{
     font-family: 'Raleway', sans-serif;
     // @include testBorder(400px, 300px);
@@ -54,3 +179,63 @@
     font-weight: 500;
 }
 
+
+//COPIED FROM APP
+
+.logo{
+    width: 150px;
+}
+
+.flexSpace{
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.info{
+    align-items: center;
+}
+
+.productQty, .form-select{
+    font-family: $contentFont;
+}
+
+.d-flex{
+    gap: 48px;
+}
+
+.pagination{
+    justify-content: center;
+    .page-link{
+        border: 0px solid grey;
+        // .active{
+            
+        // }
+    }
+
+    .active>.page-link{
+        color: black;
+            background-color: rgba(255, 192, 203, 0) !important;
+            text-decoration: underline;
+    }
+    
+}
+
+.noBorder{
+    border: 0px solid grey;
+}
+
+@media screen and (max-width: 562px) {
+    nav{
+        .icons{
+            display: none;
+            .navIcon{
+                display: none;
+        }
+        }
+
+    }
+
+    .sortBy{
+        margin-top: 24px;
+    }
+}

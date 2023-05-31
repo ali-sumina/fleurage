@@ -16,7 +16,7 @@ server.use(cors());
 
 const db = mysql.createConnection({
     host: 'localhost',
-    port: 8889,
+    port: 3306,
     user: 'root',
     password: 'root',
     database: 'Fleurage'
@@ -177,7 +177,7 @@ server.put('/updatestock/:id', (req, res) => {
 server.delete('/bouquets/:id', (req, res) => {
     let SQLquery = 'CALL `deleteProduct`(?)';
     db.query(SQLquery, [req.params.id], (error, data) => {
-        (error) ? res.json({ error_message: error }) : res.json({ message: "deleted", data: data })
+        (error) ? res.json({ error_message: error }) : res.json([{ message: "deleted", data: data }])
     })
 })
 

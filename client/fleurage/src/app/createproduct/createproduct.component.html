@@ -1,31 +1,47 @@
 <!-- ADD 'GO BACK TO TABLE' BUTTON -->
-<div>
+<div class="container marginTop">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+
+    <a routerLink="/admin"><button type="button" class="btn btn-dark"> << Back to Admin</button></a>
+    <br><br>
+
     <label for="title">Title</label> <br>
-    <input type="text" id="title" placeholder="Enter Product Name" [(ngModel)]='title'>
-    <div>{{title}}</div>
+    <input class="form-control" type="text" id="title" placeholder="Enter Product Name" [(ngModel)]='title'>
+    <!-- <div>{{title}}</div> -->
     <br><br>
 
     <label for="title">Description</label> <br>
-    <input type="text" id="description" placeholder="Enter Product Description" [(ngModel)]="description">
+    <input class="form-control" type="text" id="description" placeholder="Enter Product Description" [(ngModel)]="description">
     <br><br>
 
     <label for="price">Price</label> <br>
-    <input type="text" id="price" placeholder="Enter Price" [(ngModel)]="price">
-    <div>{{ price }}</div>
+    <input class="form-control" type="text" id="price" placeholder="Enter Price" [(ngModel)]="price">
+    <!-- <div>{{ price }}</div> -->
     <br><br>
 
     <label for="title">Stock</label> <br>
     <div class="updateStock">
-    <input type="text" id="stock" placeholder="Choose Stock" [(ngModel)]="stock">
+    <!-- <input type="text" id="stock" placeholder="Choose Stock" > -->
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="stock">
+        <option selected>Choose Stock</option>
+        <option value="1">In Stock</option>
+        <option value="0">Out Of Stock</option>
+      </select>
     </div>
     <br><br>
 
     <label for="title">Image</label> <br>
-    <input type="text" id="image" placeholder="Upload Image" [(ngModel)]="image">
+    <input class="form-control" type="text" id="image" placeholder="Upload Image" [(ngModel)]="image">
     <br><br>
 
     <td><button (click)="createProduct()" class="btn btn-success">Create Product</button></td>
 
+</div>
+    <div class="col-md-2"></div>
+</div>
 </div>
 
 <!-- ADD MESSAGE 'PRODUCT SUCCESSFULLY ADDED' -->

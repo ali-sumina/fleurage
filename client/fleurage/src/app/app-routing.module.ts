@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'product', component: ProductComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent},
-  {path:'editinfo', component: EditinfoComponent},
+  {path:'editinfo/:id', component: EditinfoComponent},
   {path: 'createproduct', component: CreateproductComponent}
 ];
 

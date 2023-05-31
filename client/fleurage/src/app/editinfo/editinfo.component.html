@@ -1,28 +1,44 @@
-<div>
+<div class="container marginTop">
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <a routerLink="/admin"><button type="button" class="btn btn-dark"> << Back to Admin</button></a>
+    <br><br>
+    
     <label for="title">Title</label> <br>
-    <input type="text" id="title" placeholder="{{bouquets.message.title}}" [(ngModel)]='title'>
-    <div>{{title}}</div>
+    <input class="form-control" type="text" id="title" placeholder="{{bouquets.message.title}}" [(ngModel)]='title'>
+    <!-- <div>{{title}}</div> -->
     <br><br>
 
     <label for="title">Description</label> <br>
-    <input type="text" id="description" placeholder="{{bouquets.message.description}}" [(ngModel)]="description">
+    <input class="form-control" type="text" id="description" placeholder="{{bouquets.message.description}}" [(ngModel)]="description">
     <br><br>
 
     <label for="title">Price</label> <br>
-    <input type="text" id="price" placeholder="{{bouquets.message.price}}" [(ngModel)]="price">
+    <input class="form-control" type="text" id="price" placeholder="{{bouquets.message.price}}" [(ngModel)]="price">
     <br><br>
 
     <label for="title">Stock</label> <br>
-    <div class="updateStock">
-    <input type="text" id="stock" placeholder="{{bouquets.message.stock}}" [(ngModel)]="stock">
-    <button class="btn-secondary" (click)="updateStock()">Update Stock</button>
-    </div>
+    <div class="updateStock row">
+        <div class="col-md-6">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="stock">
+            <option selected>Choose Stock</option>
+            <option value="1">In Stock</option>
+            <option value="0">Out Of Stock</option>
+          </select>
+        </div>
+        <div class="col-md-5">
+    <button class="btn btn-secondary" (click)="updateStock()">Update Stock</button>
+</div>    
+</div>
     <br><br>
 
     <label for="title">Image</label> <br>
-    <input type="text" id="image" placeholder="{{bouquets.message.image}}" [(ngModel)]="image">
+    <input class="form-control" type="text" id="image" placeholder="{{bouquets.message.image}}" [(ngModel)]="image">
     <br><br>
 
     <td><button (click)="save()" class="btn btn-warning">Save</button></td>
-
+</div>
+    <div class="col-md-2"></div>
+</div>
 </div>

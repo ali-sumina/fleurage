@@ -4,6 +4,7 @@
 <input type="text " placeholder="Bouquet Name">
 <input type="text" placeholder="Price"> -->
 
+<div class="container marginTop">
 <a routerLink="/createproduct"><button class="btn btn-success">Create New Product</button></a>
 
 <table class="table">
@@ -24,13 +25,18 @@
         <td><p>{{bouquet.title}}</p></td>
         <td><p>{{bouquet.description}}</p></td>
         <td><p>{{bouquet.price}}</p></td>
-        <td><input type="text" [(ngModel)] = "stock" placeholder="{{bouquet.stock}}"></td>
-        <td><p>{{bouquet.image}}"</p></td>
         <td>
-            <a routerLink="/editinfo" (click)="editData()"><button class="btn btn-primary">Edit Data</button></a>
-            <a routerLink="/admin"><button class="btn btn-danger" (click)="delete()">Delete</button></a>
+          <!-- <input type="text" [(ngModel)] = "stock" placeholder="{{bouquet.stock}}"> -->
+          <div class="inStock" *ngIf="bouquet.stock === 0">Out Of Stock</div>
+          <div class="inStock" *ngIf="bouquet.stock === 1">In Stock</div>
+        </td>
+        <td><p>{{bouquet.image}}"</p></td>
+        <td class="buttons">
+            <a routerLink="/editinfo/{{bouquet.id}}"><button class="btn btn-primary">Edit Data</button></a>
+            <a><button class="btn btn-danger" (click)="delete()">Delete</button></a>
 </td>
       </tr>
       <tr>
+
 
 

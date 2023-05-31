@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit{
   image= '';
   visibilityClass = 'invisible';
 
-  constructor (private http: HttpClient){}
+  constructor (private http: HttpClient, private route:ActivatedRoute){}
 
   ngOnInit(): void {
     this.http.get<Product>('http://localhost:4600/bouquets').subscribe(response => {
@@ -28,20 +29,20 @@ export class AdminComponent implements OnInit{
     })
   }
 
-  editData() {
-    this.visibilityClass = 'visible';
-
-    this.http.get<Product>(`http://localhost:4600/bouquets/10`).subscribe(response => {
-      console.log("Response is ", response)
-      this.bouquets = response
-      console.log (this.bouquets)
-      console.log(this.bouquets.message.id)
-    })
-  }
+  // editData() {
+  //   this.visibilityClass = 'visible';
+  //   this.http.get<Product>(`http://localhost:4600/bouquets/10`).subscribe(response => {
+  //     console.log("Response is ", response)
+  //     this.bouquets = response
+  //     console.log (this.bouquets)
+  //     console.log(this.bouquets.message.id)
+  //   })
+  // }
 
   delete() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     //change ID to what 's supposed to be deleted
-    this.http.delete('http://localhost:4600/bouquets/11').subscribe(res => {
+    this.http.delete(`http://localhost:4600/bouquets/${id}`).subscribe(res => {
       console.log ('Res is ', res)
       this.bouquets = res
     })

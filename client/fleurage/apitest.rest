@@ -83,7 +83,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:4600/updatestock/10
+PUT http://localhost:4600/updatestock/11
 Content-Type: application/json
 
 {
@@ -100,7 +100,7 @@ DELETE http://localhost:4600/bouquets/6
 
 ###
 
-DELETE http://localhost:4600/bouquets/10
+DELETE http://localhost:4600/bouquets/17
 
 ###
 

@@ -11,6 +11,9 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
   loginSuccess:any = false;
+  buttonValidate:any = true;
+  trueMessageVisible:any = 'invisible'
+  falseMessageVisible:any = 'invisible'
 
   constructor(private http:HttpClient){}
 
@@ -20,6 +23,11 @@ export class LoginComponent implements OnInit {
       console.log(res)
       this.loginSuccess = res
     })
+    if (this.loginSuccess != true) {
+      this.falseMessageVisible = 'visible'
+    } else {
+      this.trueMessageVisible = 'visible'
+    }
   }
 
   ngOnInit(): void {
