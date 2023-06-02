@@ -163,7 +163,10 @@
   
                 <div class="product mb-5 d-flex col-md-4"
                 *ngFor="let bouquet of bouquets">
-                <div class="">
+
+                <!-- IF PRODUCT IS HIDDEN -->
+                <div class="" *ngIf="bouquet.display === 0">
+                    <div [class]="prodInvisible">
                     <div class="prodStock" *ngIf="bouquet.stock">
                     <div class="productImg">
                     <span class="badge inStock text-bg-success position-absolute py-1 px-2" *ngIf="bouquet.stock">In Stock</span>
@@ -178,6 +181,7 @@
                     <div class="price mt-1">CAD {{bouquet.price}}</div>
                     <button class="btn btn-primary mt-3">Shop Now</button>
                 </div>
+            
                 
                 
                 <div class="prodStock opacityLow" *ngIf="!bouquet.stock">
@@ -195,6 +199,46 @@
                     <button class="btn btn-primary mt-3 disabled">Shop Now</button>
                 </div>
             </div>
+        </div>
+
+        <!-- IF PRODUCT IS DISPLAYED -->
+        <div class="" *ngIf="bouquet.display === 1">
+            <div [class]="prodVisible">
+            <div class="prodStock" *ngIf="bouquet.stock">
+            <div class="productImg">
+            <span class="badge inStock text-bg-success position-absolute py-1 px-2" *ngIf="bouquet.stock">In Stock</span>
+                
+            <img src="../../assets/ready/{{bouquet.image}}" alt="" class="img">
+        
+        
+        
+            </div>
+            <h5 class="mt-3">{{bouquet.title}}</h5>
+            <p class="description pt-2">{{bouquet.description}}</p>
+            <div class="price mt-1">CAD {{bouquet.price}}</div>
+            <button class="btn btn-primary mt-3">Shop Now</button>
+        </div>
+    
+        
+        
+        <div class="prodStock opacityLow" *ngIf="!bouquet.stock">
+            <div class="productImg">
+            <span class="badge outOfStock text-bg-success position-absolute py-1 px-2" *ngIf="!bouquet.stock">Out of Stock</span>
+                
+            <img src="../../assets/ready/{{bouquet.image}}" alt="" class="img">
+        
+        
+        
+            </div>
+            <h5 class="mt-3">{{bouquet.title}}</h5>
+            <p class="description pt-2">{{bouquet.description}}</p>
+            <div class="price mt-1">CAD {{bouquet.price}}</div>
+            <button class="btn btn-primary mt-3 disabled">Shop Now</button>
+        </div>
+    </div>
+</div>
+
+
                 </div>
             </div>
           </div>

@@ -204,6 +204,7 @@
 }
 
 .pagination{
+    font-family: $contentFont;
     justify-content: center;
     .page-link{
         border: 0px solid grey;
@@ -238,4 +239,14 @@
     .sortBy{
         margin-top: 24px;
     }
+}
+
+//CONTROL DISPLAY OF PROD
+
+.invisible{
+    display:none;
+}
+
+.visible{
+    display: block;
 }

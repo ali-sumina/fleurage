@@ -6,7 +6,8 @@ export interface Product {
             description: string,
             price: number,
             stock: boolean,
-            image: string
+            image: string,
+            display:boolean
         }
     ]
 }

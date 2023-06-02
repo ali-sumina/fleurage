@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class ProductComponent implements OnInit {
 
   bouquets:any[] = [];
+  prodVisible = 'visible'
+  prodInvisible = 'invisible'
 
   constructor (private http:HttpClient){}
 

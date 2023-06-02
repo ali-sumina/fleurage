@@ -171,6 +171,22 @@ server.put('/updatestock/:id', (req, res) => {
     })
 })
 
+//PUT -- Update Product Display by ID
+
+server.put('/updatedisplay/:id', (req, res) => {
+    let SQLquery = 'CALL `updateDisplay`(?, ?)'
+
+    db.query (SQLquery, [req.params.id, req.body.display], (error, data) => {
+        if (error) {
+            res.json ({error_message:error})
+        } else {
+            res.json({message: 'updated', data:data})
+        }
+    })
+
+
+})
+
 
 // DELETE by prod id
 
