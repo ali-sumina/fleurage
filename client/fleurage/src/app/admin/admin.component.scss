@@ -1,3 +1,6 @@
+@import '../../styles.scss';
+
+
 .invisible{
     display:none;
 }
@@ -8,6 +11,7 @@
 
 .marginTop{
     margin-top: 128px;
+    font-family: $contentFont;
 }
 
 .buttons{

@@ -34,12 +34,12 @@
         <td><p>{{bouquet.image}}"</p></td>
         <td>
           <div class="hiddenProduct" *ngIf="bouquet.display === 0">
-            <div class="displayMessage">Product is Hidden</div>
+            <div class="displayMessage">Hidden</div>
             <button class="btn btn-light" (click)="showProduct()">Show</button>
           </div>
 
           <div class="displayedProduct" *ngIf="bouquet.display === 1">
-            <div class="displayMessage">Product is Displayed</div>
+            <div class="displayMessage">Displayed</div>
             <button class="btn btn-dark" (click)="hideProduct()">Hide</button>
           </div>
           
