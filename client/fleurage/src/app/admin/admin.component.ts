@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../interface';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment'; 
 
 @Component({
   selector: 'app-admin',
@@ -23,7 +24,7 @@ export class AdminComponent implements OnInit{
   constructor (private http: HttpClient, private route:ActivatedRoute){}
 
   ngOnInit(): void {
-    this.http.get<Product>('http://localhost:4600/bouquets').subscribe(response => {
+    this.http.get<Product>(environment.server + '/bouquets').subscribe(response => {
       console.log("Response is ", response)
       this.bouquets = response.bouquets
       console.log (this.bouquets)
@@ -47,7 +48,7 @@ export class AdminComponent implements OnInit{
   delete(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     //change ID to what 's supposed to be deleted
-    this.http.delete(`http://localhost:4600/bouquets/${id}`).subscribe(res => {
+    this.http.delete(environment.server + `/bouquets/${id}`).subscribe(res => {
       console.log ('Res is ', res)
       this.bouquets = res
     })
@@ -56,7 +57,7 @@ export class AdminComponent implements OnInit{
   showProduct(){
     // this.display = 1;
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.http.put(`http://localhost:4600/updatedisplay/${id}`, {display: 1}).subscribe (res => {
+    this.http.put(environment.server + `updatedisplay/${id}`, {display: 1}).subscribe (res => {
       console.log ('Product is displayed', res)
       this.bouquets = res
       console.log(this.bouquets)
@@ -66,7 +67,7 @@ export class AdminComponent implements OnInit{
   hideProduct(){
     // this.display = 0;
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.http.put(`http://localhost:4600/updatedisplay/${id}`, {display: 0}).subscribe (res => {
+    this.http.put(environment.server + `/updatedisplay/${id}`, {display: 0}).subscribe (res => {
       console.log ('Product is displayed', res)
       this.bouquets = res
       console.log(this.bouquets)

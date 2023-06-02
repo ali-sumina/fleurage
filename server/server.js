@@ -1,13 +1,14 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import 'dotenv/config';
 
 
 //CONNECTION, SETUP
 
 const server = express();
 server.use(express.json());
-const port = 4600;
+const port = process.env.NODEPORT;
 
 server.listen (port, function(){
     console.log("Server started on port", port);
@@ -15,11 +16,11 @@ server.listen (port, function(){
 server.use(cors());
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: 'root',
-    database: 'Fleurage'
+    host: process.env.DBSERVER,
+    port: process.env.DBPORT,
+    user: process.env.DBUSER,
+    password: process.env.DBPASSWORD,
+    database: process.env.DB
 })
 
 db.connect (function(error){

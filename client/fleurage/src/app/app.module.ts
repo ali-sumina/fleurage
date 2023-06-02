@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { EditinfoComponent } from './editinfo/editinfo.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
+// import { EnvironmentComponent } from './environment/environment';
 
 
 @NgModule({
