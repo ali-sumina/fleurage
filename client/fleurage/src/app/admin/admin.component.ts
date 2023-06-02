@@ -40,6 +40,10 @@ export class AdminComponent implements OnInit{
   //   })
   // }
 
+
+//control set by Bootstrap properties like [checked]="string interpolation"
+
+  //possible to pass ID as parameter, and accept it in angular via string interpolation
   delete(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     //change ID to what 's supposed to be deleted
