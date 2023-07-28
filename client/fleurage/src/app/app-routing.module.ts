@@ -20,3 +20,11 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+//if(res){
+//   this.router.navigate(['/admin']);
+// }
+// else{
+//   this.router.navigate(['/home']);
+//   alert("Wrong Password/User")
+// }
