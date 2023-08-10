@@ -8,7 +8,7 @@ import { EditinfoComponent } from './editinfo/editinfo.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
 
 const routes: Routes = [
-  {path: 'product', component: ProductComponent},
+  {path: '', component: ProductComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent},
   {path:'editinfo/:id', component: EditinfoComponent},
