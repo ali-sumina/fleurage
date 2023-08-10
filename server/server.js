@@ -15,7 +15,7 @@ server.listen (port, function(){
 })
 server.use(cors());
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
     host: process.env.DBSERVER,
     port: process.env.DBPORT,
     user: process.env.DBUSER,
@@ -23,13 +23,13 @@ const db = mysql.createConnection({
     database: process.env.DB
 })
 
-db.connect (function(error){
-    if (error) {
-        console.log("Connection to SQL failed", error)
-    } else {
-        console.log ("Successfully connected to SQL db")
-    }
-})
+// db.connect (function(error){
+//     if (error) {
+//         console.log("Connection to SQL failed", error)
+//     } else {
+//         console.log ("Successfully connected to SQL db")
+//     }
+// })
 
 
 // CRUD
